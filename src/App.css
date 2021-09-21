@@ -1,0 +1,40 @@
+body {
+  text-align: center;
+  background-color: #264653;
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2a9d8f;
+  padding: 50px 25px;
+  color: #264653;
+}
+
+input, button{
+  margin: 10px;
+  background-color: #e9c46a;
+  border: #f4a261;
+  color: #264653;
+}
+
+input::placeholder{
+  color: #e76f51;
+}
+
+input{
+  width: 300px;
+  height: 40px;
+}
+
+button{
+  width: 100px;
+  height: 30px;
+}
