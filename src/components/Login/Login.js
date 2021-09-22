@@ -2,17 +2,15 @@ import * as yup from 'yup'
 import { useForm } from "react-hook-form"
 import {yupResolver} from '@hookform/resolvers/yup'
 import axios from "axios"
-import { useHistory } from 'react-router'
 import Display from '../Display/Display'
 import { useState } from 'react'
 
 function Login(){
-    const history = useHistory()
     const [result, setResult] = useState()
 
     const formSchema = yup.object().shape({
-        username: yup.string().required("Requisição Falhou!"),
-        password: yup.string().required("Requisição Falhou!"),
+        username: yup.string().required("User name não informado."),
+        password: yup.string().required("Senha não informada."),
     })
 
     const {register, handleSubmit, formState:{errors}, setError} = useForm(
@@ -28,9 +26,10 @@ function Login(){
     return(
         <form onSubmit={handleSubmit(handleForm)}>
             <input placeholder="User name" {...register("username")}/>
+            {errors.username?.message}
             <input type='password' placeholder="Senha" {...register("password")} />
+            {errors.password?.message}
             <button>Login{" "}</button>
-            {errors.username?.message || errors.password?.message}
             <Display result={result}/>
         </form>
     )
